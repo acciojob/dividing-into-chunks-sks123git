@@ -1,7 +1,23 @@
 const arr = [1, 2, 3, 4, 1, 0, 2, 2];
 
 const divide = (arr, n) => {
-  // Write your code here
+ 	let final = []
+	let j = 0;
+	let sum = 0;
+	let temp = []
+	while(j<arr.length){
+		if(sum+arr[j]<=n) {
+		    temp.push(arr[j])
+		    sum += arr[j];
+		} else {
+		    if(temp.length) final.push(temp)
+		    temp = [arr[j]]
+		    sum = arr[j]
+		} 
+		j++;
+	}
+	if(temp.length) final.push(temp)
+	return final
 };
 
 const n = prompt("Enter n: ");
